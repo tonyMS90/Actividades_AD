@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 //clase destinada a la gestion de pasajeros contra la bbdd
+
 public class PasajeroDao {
    private Connection connection;
    private PreparedStatement preparedStatement;
@@ -37,7 +38,7 @@ public class PasajeroDao {
     }
 
     //borrar pasajero por id
-    //falta decir en la clase concesionario que si el id no existe, no se puede borrar el coche
+
     public void borrarPasajero(int id) throws SQLException {
         String query = String.format("DELETE FROM %s WHERE %s = ?",
                 SchemaDB.TAB_PAS, SchemaDB.COL_ID);
@@ -47,6 +48,7 @@ public class PasajeroDao {
     }
 
     //consultar pasajero por id
+
     public ArrayList<Pasajero> getPasajeroId(int id) throws SQLException {
         ArrayList<Pasajero> resultado = new ArrayList<>();
         String query = String.format("SELECT * FROM %s WHERE %s = ?",
@@ -58,6 +60,7 @@ public class PasajeroDao {
     }
 
     //Lista de Pasajeros
+
     public ArrayList<Pasajero> listaPasajeros() throws SQLException {
         String query = String.format("SELECT * FROM %s",
                 SchemaDB.TAB_PAS);
@@ -80,6 +83,7 @@ public class PasajeroDao {
 
 
     //eliminar pasajero a un coche
+
     public void eliminarPasajeroCoche(int idPasajero) throws SQLException {
         String query = String.format("UPDATE %s SET %s = NULL WHERE %s = ?",
                 SchemaDB.TAB_PAS, SchemaDB.COL_ID, SchemaDB.COL_ID);
@@ -89,6 +93,7 @@ public class PasajeroDao {
         preparedStatement.executeUpdate();
     }
     // lista de pasajeros de un coche
+
     public ArrayList<Pasajero> listarPasajerosCoche(int idCoche) throws SQLException {
         ArrayList<Pasajero> pasajeros = new ArrayList<>();
         String query = String.format("SELECT * FROM %s WHERE %s = ?",
@@ -113,6 +118,7 @@ public class PasajeroDao {
 
     //metodo para devolver una lista con los resultados
     //esta lista tambien la utilizo en el metodo getPasajeroId
+
     private ArrayList<Pasajero> getResultados(ResultSet datosResultantes) throws SQLException {
         ArrayList<Pasajero>listaResultado = new ArrayList<>();
         while(datosResultantes.next()){
@@ -124,6 +130,7 @@ public class PasajeroDao {
         return listaResultado;
     }
     //mapeo para utilizar en los resultados
+
     private Pasajero mapearPasajero(String nombre, int edad, double peso) throws SQLException {
         return new Pasajero(nombre, edad, peso);
     }

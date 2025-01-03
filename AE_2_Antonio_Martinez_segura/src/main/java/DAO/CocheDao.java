@@ -15,7 +15,7 @@ public class CocheDao {
 
     //creo la conexion
     private Connection connection;
-    //añadir cosas a la BBDD
+
     private PreparedStatement preparedStatement;
     //devolver resultados
     private ResultSet resultSet;
@@ -42,7 +42,7 @@ public class CocheDao {
     }
 
     //borrar coche por id
-    //falta decir en la clase concesionario que si el id no existe, no se puede borrar el coche
+
     public void borrarCoche(int id) throws SQLException {
         String query = String.format("DELETE FROM %s WHERE %s = ?",
                 SchemaDB.TAB_CO, SchemaDB.COL_ID);
@@ -52,6 +52,7 @@ public class CocheDao {
     }
 
     //consultar coche por id
+
     public ArrayList<Coche> getCocheId(int id) throws SQLException {
         ArrayList<Coche> resultado = new ArrayList<>();
         String query = String.format("SELECT * FROM %s WHERE %s = ?",
@@ -62,7 +63,7 @@ public class CocheDao {
         return getResultados(resultSet);
     }
     //modificar coche
-    //faltar indicar en la clase concesionario que si el id es = a uno que ya existe, no se puede realizar la modificacion
+
     public void modificarCoche(int id, Coche coche) throws SQLException {
         String query = String.format("UPDATE %s SET %s=?, %s=?, %s=?, %s=? WHERE %s = ?",
                 SchemaDB.TAB_CO, SchemaDB.COL_CO_MAT, SchemaDB.COL_CO_MAR, SchemaDB.COL_CO_MOD, SchemaDB.COL_CO_COL, SchemaDB.COL_ID);
@@ -78,6 +79,7 @@ public class CocheDao {
 
 
     //Lista de coches
+
     public ArrayList<Coche> listaCoches() throws SQLException {
         String query = String.format("SELECT * FROM %s",
                 SchemaDB.TAB_CO);
@@ -90,6 +92,7 @@ public class CocheDao {
 
     //metodo para devolver una lista con los resultados
     //esta lista tambien la utilizo en el metodo getCocheId
+
     private ArrayList<Coche> getResultados(ResultSet datosResultantes) throws SQLException {
         ArrayList<Coche>listaResultado = new ArrayList<>();
         while(datosResultantes.next()){
@@ -102,6 +105,7 @@ public class CocheDao {
         return listaResultado;
     }
     //mapeo para utilizar en los resultados
+
     private Coche mapearCoche(String matricula, String marca, String modelo, String color){
         return new Coche(matricula,marca,modelo,color);
     }

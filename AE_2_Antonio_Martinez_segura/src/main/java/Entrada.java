@@ -12,15 +12,15 @@ import java.util.Scanner;
 
 public class Entrada {
 
-    // Inicialización del scanner y controller como variables globales
+    // Inicialización del scanner y controller
     private static Scanner scanner = new Scanner(System.in);
-    private static Concesionario concesionario;  // Declaración global de concesionario
+    private static Concesionario concesionario;  // Declaro Concesionario
 
     public static void main(String[] args) {
         try {
-            concesionario = new Concesionario(); // Usamos la variable global para inicializar Concesionario
+            concesionario = new Concesionario();
 
-            // Bucle principal del menú
+            //bucle del menu
             while (true) {
                 menuPrincipal();
                 try {

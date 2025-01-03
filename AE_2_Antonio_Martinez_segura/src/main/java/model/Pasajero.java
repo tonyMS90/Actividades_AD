@@ -17,11 +17,15 @@ public class Pasajero {
     private double peso;
     private int idCoche;
 
+    //constructor sin id
+
     public Pasajero(String nombre, int edad, double peso) {
         this.nombre = nombre;
         this.edad = edad;
         this.peso = peso;
     }
+
+    //Metodo para mostrar los datos del pasajero
 
     public void mostrarDatos(){
         System.out.println("nombre = " + nombre);

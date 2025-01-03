@@ -84,8 +84,6 @@ public class Concesionario {
     }
 
     // Listar todos los pasajeros de un coche
-
-
     public ArrayList<Pasajero> listarPasajerosCoche(int idCoche) throws SQLException {
         return pasajeroDao.listarPasajerosCoche(idCoche);
     }
