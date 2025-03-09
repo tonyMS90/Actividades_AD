@@ -1,4 +1,4 @@
-Libreriapackage model;
+package com.example.AE_5_Libreria_Antonio_Martinez.model;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -40,20 +40,6 @@ public class Libreria implements Serializable {
     )
     private List<Libro> libros;
 
-    @OneToOne
-    @JoinColumn(name = "jefe_id")
-    private Jefe jefe;
-
-    @OneToMany(mappedBy = "libreria")
-    private List<Pedido> pedidos;
-
-    @ManyToMany
-    @JoinTable(
-            name = "libreria_cliente",
-            joinColumns = @JoinColumn(name = "libreria_id"),
-            inverseJoinColumns = @JoinColumn(name = "cliente_id")
-    )
-    private List<Cliente> clientes;
 
     //CONSTRUCTOR SIN ID
 
